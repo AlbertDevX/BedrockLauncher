@@ -10,12 +10,12 @@ Launcher para Minecraft Bedrock Universal Compatible con Sistemas Operativos Cus
 
 ## 📌 Resumen ejecutivo
 
-Este documento presenta una solución definitiva al problema de autenticación de Xbox en sistemas **TomexOS** y **Windows 10/11 LTSC modificados**, donde la ventana de inicio de sesión de Microsoft se abre y se cierra automáticamente sin permitir al usuario identificarse.
+Este proyecto presenta una solución definitiva al problema de autenticación de Xbox en sistemas **Customs** como tambien **Windows 10/11 LTSC modificados**, donde la ventana de inicio de sesión de Microsoft se abre y se cierra automáticamente sin permitir al usuario identificarse. O diferentes tipos de cosas como correccion de inicio de sesiones corruptas, o etc...
 
 La solución propuesta es la creación de un **launcher autónomo en C#** que utiliza **Device Code Flow**, un método de autenticación que no requiere ventanas emergentes ni el componente `WebView2` (roto en estos sistemas).
 
 **Autor:** AlbertDevX  
-**Contacto:** [GitHub / Discord / X (Twitter) del autor]
+**Contacto:** [GitHub / Discord del autor]
 
 ---
 
@@ -31,7 +31,7 @@ La solución propuesta es la creación de un **launcher autónomo en C#** que ut
 
 ### Causa raíz
 
-**TomexOS** (y otras distribuciones modificadas de Windows LTSC) eliminan o deshabilitan componentes críticos como:
+Diferentes tipos de distribuciones eliminan o deshabilitan componentes críticos como:
 - `Microsoft Edge WebView2 Runtime`
 - `Xbox Identity Provider`
 - `Gaming Services`
