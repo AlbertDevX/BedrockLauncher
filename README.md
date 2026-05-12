@@ -62,24 +62,6 @@ Es un estándar de autenticación OAuth 2.0 diseñado para dispositivos con capa
 
 ---
 
-## 🛠️ Implementación técnica
-
-### 1️⃣ Registrar aplicación en Azure (gratuito, 2 minutos)
-
-| Paso | Acción |
-|------|--------|
-| 1 | Ve a [Azure Portal - App registrations](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| 2 | Inicia sesión con tu cuenta Microsoft |
-| 3 | Haz clic en **"New registration"** |
-| 4 | **Nombre:** `MiLauncherXbox` (o el que prefieras) |
-| 5 | **Supported account types:** "Personal Microsoft accounts only" |
-| 6 | **Redirect URI:** Déjalo vacío (no necesario para Device Code Flow) |
-| 7 | Haz clic en **"Register"** |
-| 8 | **Copia el "Application (client) ID"** → lo usarás en el código |
-| 9 | Ve a **"Certificates & secrets"** → **"New client secret"** |
-| 10 | Elige expiración (recomendado: 1 año) → **"Add"** |
-| 11 | **Copia el "Value" del secreto** (solo se muestra una vez) |
-
 ### 2️⃣ Lenguaje y tecnologías
 
 | Componente | Elección | Motivo |
