@@ -1,0 +1,224 @@
+<Window x:Class="BedrockLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BedrockLauncher - Minecraft Bedrock" 
+        Height="700" 
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#1E1E23">
+    
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,30">
+            <TextBlock Text="🎮 BedrockLauncher" 
+                       FontSize="32" 
+                       FontWeight="Bold" 
+                       Foreground="#4CAF50"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Minecraft Bedrock Universal" 
+                       FontSize="14" 
+                       Foreground="#888888"
+                       HorizontalAlignment="Center"
+                       Margin="0,5,0,0"/>
+            <TextBlock Text="por AlbertDevX" 
+                       FontSize="12" 
+                       Foreground="#666666"
+                       HorizontalAlignment="Center"
+                       Margin="0,2,0,0"/>
+        </StackPanel>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Login Section -->
+            <Border Grid.Row="0" 
+                    Background="#2D2D30" 
+                    CornerRadius="12" 
+                    Padding="25"
+                    Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="🔐 Autenticación Xbox" 
+                               FontSize="18" 
+                               FontWeight="SemiBold"
+                               Foreground="White"
+                               Margin="0,0,0,15"/>
+                    
+                    <TextBlock x:Name="InstructionText"
+                               Text="Haz clic en 'Iniciar Sesión' para comenzar" 
+                               FontSize="13" 
+                               Foreground="#AAAAAA"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,15"/>
+
+                    <Button x:Name="LoginButton"
+                            Content="🚀 Iniciar Sesión"
+                            Click="LoginButton_Click"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,0,0,15"/>
+
+                    <Border x:Name="CodeDisplay" 
+                            Visibility="Collapsed"
+                            Background="#1E1E23" 
+                            CornerRadius="8" 
+                            Padding="15"
+                            Margin="0,0,0,10">
+                        <StackPanel>
+                            <TextBlock Text="Código de autenticación:" 
+                                       FontSize="12" 
+                                       Foreground="#888888"
+                                       Margin="0,0,0,5"/>
+                            <TextBlock x:Name="UserCodeText"
+                                       Text="ABC12345" 
+                                       FontSize="28" 
+                                       FontWeight="Bold"
+                                       Foreground="#4CAF50"
+                                       HorizontalAlignment="Center"
+                                       FontFamily="Consolas"
+                                       Margin="0,0,0,10"/>
+                            
+                            <TextBlock Text="URL de verificación:" 
+                                       FontSize="12" 
+                                       Foreground="#888888"
+                                       Margin="0,0,0,5"/>
+                            <TextBox x:Name="UrlTextBox"
+                                     Text="https://microsoft.com/devicelogin"
+                                     IsReadOnly="True"
+                                     Margin="0,0,0,10"/>
+                            
+                            <Button x:Name="CopyCodeButton"
+                                    Content="📋 Copiar Código"
+                                    Click="CopyCodeButton_Click"
+                                    HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="StatusDisplay" 
+                            Visibility="Collapsed"
+                            Background="#1E3A2F" 
+                            CornerRadius="8" 
+                            Padding="15">
+                        <StackPanel>
+                            <TextBlock Text="⏳ Esperando autorización..." 
+                                       FontSize="13" 
+                                       Foreground="#4CAF50"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,10"/>
+                            <ProgressBar x:Name="AuthProgress"
+                                         IsIndeterminate="True"
+                                         Height="4"
+                                         Value="100"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <!-- User Info Section -->
+            <Border Grid.Row="1" 
+                    x:Name="UserInfoBorder"
+                    Visibility="Collapsed"
+                    Background="#2D4A2F" 
+                    CornerRadius="12" 
+                    Padding="20"
+                    Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="✅ Sesión iniciada" 
+                               FontSize="16" 
+                               FontWeight="SemiBold"
+                               Foreground="#4CAF50"
+                               Margin="0,0,0,10"/>
+                    <TextBlock x:Name="UserNameText"
+                               Text="Usuario: " 
+                               FontSize="14" 
+                               Foreground="White"
+                               Margin="0,0,0,5"/>
+                    <TextBlock x:Name="XuidText"
+                               Text="XUID: " 
+                               FontSize="12" 
+                               Foreground="#888888"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Launch Section -->
+            <Border Grid.Row="2" 
+                    x:Name="LaunchSection"
+                    Visibility="Collapsed"
+                    Background="#2D2D30" 
+                    CornerRadius="12" 
+                    Padding="25">
+                <StackPanel>
+                    <TextBlock Text="🎮 Lanzar Juego" 
+                               FontSize="18" 
+                               FontWeight="SemiBold"
+                               Foreground="White"
+                               Margin="0,0,0,15"/>
+
+                    <TextBlock Text="Versión de Minecraft:" 
+                               FontSize="13" 
+                               Foreground="#AAAAAA"
+                               Margin="0,0,0,8"/>
+                    <TextBox x:Name="VersionTextBox"
+                             Text="latest"
+                             Margin="0,0,0,15"/>
+
+                    <Button x:Name="LaunchButton"
+                            Content="▶️ Lanzar Minecraft Bedrock"
+                            Click="LaunchButton_Click"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,0,0,10"/>
+
+                    <Button x:Name="LogoutButton"
+                            Content="🚪 Cerrar Sesión"
+                            Click="LogoutButton_Click"
+                            HorizontalAlignment="Stretch"
+                            Background="#C62828"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Log Section -->
+            <Border Grid.Row="3" 
+                    Background="#1E1E23" 
+                    CornerRadius="8" 
+                    Padding="15"
+                    Margin="0,20,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBox x:Name="LogTextBox"
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             FontFamily="Consolas"
+                             FontSize="11"
+                             Foreground="#666666"
+                             BorderThickness="0"
+                             Background="Transparent"/>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+
+        <!-- Footer -->
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <TextBlock Text="Device Code Flow - Sin WebView2" 
+                       FontSize="11" 
+                       Foreground="#444444"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Compatible con Windows LTSC y sistemas customs" 
+                       FontSize="10" 
+                       Foreground="#333333"
+                       HorizontalAlignment="Center"
+                       Margin="0,3,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
