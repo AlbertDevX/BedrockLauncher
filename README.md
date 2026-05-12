@@ -1,7 +1,7 @@
 # BedrockLauncher
 Launcher para Minecraft Bedrock Universal Compatible con Sistemas Operativos Customs y Windows como Windows 10 LTSC
 
--# # 🎮 Launcher universal para Minecraft en sistemas
+## 🎮 Launcher universal para Minecraft en sistemas
 **Autor:** AlbertDevX  
 **Fecha:** Mayo 2026  
 **Versión del documento:** 1.0
